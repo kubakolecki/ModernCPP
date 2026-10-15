@@ -41,7 +41,7 @@ int main()
     using Degrees = double;
     using Radians = double;
     const double deg2Rad{pi/180.0};  //const variable! Thre is also constexpr but we will come to this later
-    
+
     Degrees theta{75};
     const bool isInFirstQuarter { std::sin(theta*deg2Rad) > 0 && std::cos(theta*deg2Rad) > 0 };
 
@@ -62,7 +62,7 @@ int main()
 
     Zodiac myZodiac{Zodiac::ARIES};
 
-    //std::cout << myZodiac <<"\n"; //this does not compile!
+    std::cout << static_cast<int>(myZodiac) <<"\n"; //this does not compile!
     const Season currentSeason {Season::AUTUMN};
     bool isAutumn{Season::AUTUMN == currentSeason};
     bool isColdSeason{Season::AUTUMN == currentSeason || Season::WINTER == currentSeason};

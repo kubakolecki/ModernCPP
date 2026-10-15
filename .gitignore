@@ -5,6 +5,5 @@
 *.pdf
 *.vscode
 01_setting_up_gcc/
-04_functions/
 05_containers/
 06_classes/

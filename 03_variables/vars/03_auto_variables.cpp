@@ -14,10 +14,10 @@ int main ()
     using namespace std::complex_literals;
     const auto pi{std::numbers::pi_v<double>};    
     using Complex = std::complex<double>;
-    auto vectorA{3.0 + 1.0i};
-    auto vectorB{Complex{3.0 + 1.0i}}; //also works: this is initialization with explicit type 
-    auto alpha{pi/4.0};
-    auto rotatedVectorA{ std::complex{std::cos(alpha),std::sin(alpha)}*vectorA };
+    const auto vectorA{3.0 + 1.0i};
+    const auto vectorB{Complex{3.0 + 1.0i}}; //also works: this is initialization with explicit type 
+    const auto alpha{pi/4.0};
+    const auto rotatedVectorA{ std::complex{std::cos(alpha),std::sin(alpha)}*vectorA };
 
     std::cout << "vectorA = "<< vectorA <<", rotatedVectorA = " << rotatedVectorA << std::endl;
     std::cout << "norm of vectorA = "<< std::sqrt(std::norm(vectorA)) <<", norm of rotatedVectorA = " << std::sqrt(std::norm(rotatedVectorA)) << std::endl;

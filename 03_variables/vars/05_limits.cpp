@@ -102,8 +102,9 @@ int main()
     evaluationResult = hasQualificationToScholarship(10); //conversion
     std::cout << "can scholarship be granted: " << std::boolalpha << evaluationResult << "\n";
 
+    //WHY unsigned types are not very safe?
     unsigned int yaerOfPhdGarduation{ 2021 };
-    unsigned int yearOfAppliation{ 2023 };
+    unsigned int yearOfAppliation{ 2026 };
     evaluationResult = hasQualificationToScholarship(std::fabs(yaerOfPhdGarduation - yearOfAppliation)); //NO WARNING!
     std::cout << "can scholarship be granted: " << std::boolalpha << evaluationResult << "\n";
 
