@@ -6,5 +6,3 @@
 *.vscode
 *.txt
 01_setting_up_gcc/
-05_containers/
-06_classes/
