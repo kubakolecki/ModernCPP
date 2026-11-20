@@ -8,7 +8,7 @@ int main()
 {
     //************************************ POINTERS ************************************//
     double price{199.00};
-    double *pricePtr; //pointer (don't do this!)
+    double *pricePtr; //pointer (uninitialized poiter don't do this!)
     pricePtr = &price; //assignment
     
     double taxRate{0.23};
@@ -51,3 +51,29 @@ int main()
 
     return EXIT_SUCCESS;
 }
+
+/*
+summary:
+1. Raw pointer
+2. Address operator (&)
+3. Printing the address using std::cout
+4. Initializint a pointer variable
+5. Uninitialized raw pointer
+6. Indirection of pointer variable (the * operator)
+7. The difference between * when initialization of pointer variable and * when indirecting pointer
+8. Indirecting the uninitialized pointer
+9. nullptr (from C++11)
+10. Lectures: understanding the difference between:
+const float* ptr;
+float* const ptr;
+const float* const ptr;
+11. References - declaring the reference variable
+12. Using const keyword along with reference
+13. Uninitialized references are forbidden
+14. Re-asigning the reference does not compile
+Other:
+15. complex numbers in C++
+16. complex literals
+17. printing out boolean values (std::boolalpha manipulator)
+
+*/

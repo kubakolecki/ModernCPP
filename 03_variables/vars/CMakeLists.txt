@@ -16,6 +16,7 @@ add_executable(structures
 add_executable(limits
 05_limits.cpp)
 
+#Enabling some type conversion warnings:
 target_compile_options(variables_intro PRIVATE -Wall -Wextra -Wfloat-conversion)
 target_compile_options(pointers PRIVATE -Wall -Wextra -Wfloat-conversion)
 target_compile_options(auto PRIVATE -Wall -Wextra -Wfloat-conversion)

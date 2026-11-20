@@ -6,7 +6,7 @@ int main ()
     auto e{2.7182818f};
     auto i{1};
 
-    const auto j{1};
+    const auto j{1}; //very important (auto is deduced as int, the type of j is deduces as const int!)
     auto& iRef{i};
 
     auto name{"Jan Kowalski"};
@@ -26,7 +26,11 @@ int main ()
 }
 
 /*
-- auto type deduction
-- auto type deduciton vs variable type deduction 
-- the AAA rule
+summary:
+1. auto type deduction
+2. auto type deduciton vs variable type deduction 
+3. the AAA rule
+4. using auto along with reference (&)
+5. using auto along with const keyword
+
 */

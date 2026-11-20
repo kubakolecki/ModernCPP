@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <limits>
 #include <cmath>
-//#include <chrono>
 
 bool hasQualificationToScholarship(const double yearsAfterPhd);
 
@@ -12,7 +11,7 @@ void printNumericLimits(const bool useScientificNotation = false)
     std::cout << "limits of " << typeid(T).name() << " are: ";
     if (useScientificNotation)
     {
-        std::cout << std::scientific << std::setprecision(14);
+        std::cout << std::scientific << std::setprecision(14); //see how manipulators are passed to the output stream!
     }
     std::cout << std::numeric_limits<T>::min() << " <---------------------------> " << std::numeric_limits<T>::max() << "\n";
 }
@@ -30,6 +29,7 @@ int main()
     printNumericLimits<long double>(true);
     std::cout << "\n";
 
+    //Float type can sometimes be not sufficient - see why:
     float myBudgetYesterday{5'000'000'003.0f }; //NO WARNING!
     float myBudgetToday{5'000'000'107.0f }; //NO WARNING!
     float myDailyIncome = myBudgetToday - myBudgetYesterday;
@@ -49,6 +49,9 @@ int main()
     //     }
     // }
 
+    //demonstration of std::nextafter function:
+    //See how the resolution of non-integer types gets worse
+    //while moving from small to large numbers:
     std::cout << std::setprecision(17);
     std::cout << std::fixed;
     std::cout << "\n";
@@ -68,6 +71,9 @@ int main()
     double d{};
     int i{};
     long long int lli{};
+
+    //I noticed that if it will be warning or not may depend on the
+    //compiler: 
 
     f = d; //WARNING
     d = f; //promotion
@@ -102,27 +108,14 @@ int main()
     evaluationResult = hasQualificationToScholarship(10); //conversion
     std::cout << "can scholarship be granted: " << std::boolalpha << evaluationResult << "\n";
 
-    //WHY unsigned types are not very safe?
+    //Demonstration why unsigned types are not very safe:
+    //The user may think that if the funciton hasQualificationToScholarship
+    //takes the difference in age as an input, the absolute value can be computed
+    //However this won't wokr with unsigned types!
     unsigned int yaerOfPhdGarduation{ 2021 };
     unsigned int yearOfAppliation{ 2026 };
     evaluationResult = hasQualificationToScholarship(std::fabs(yaerOfPhdGarduation - yearOfAppliation)); //NO WARNING!
     std::cout << "can scholarship be granted: " << std::boolalpha << evaluationResult << "\n";
-
-    // std::cout << "\n";
-    // for (auto someIntNumber{ 0 }; someIntNumber < 256; ++someIntNumber)
-    // {
-    //     std::cout << std::setw(6)<< someIntNumber << "--->" << static_cast<unsigned char>(someIntNumber) << "<---\n";
-    // }
-    // std::cout << "\n";
-
-    // const std::string someString = "Hello World!";
-    // std::cout << "Converting " << someString << " to integeres:\n";
-    // for (const auto& character : someString)
-    // {
-    //     std::cout << static_cast<int>(character);
-    // }
-    // std::cout << "\n";
-   
 
 }
 
@@ -145,4 +138,6 @@ bool hasQualificationToScholarship(const double yearsAfterPhd)
 5. static_cast
 6. integer overflow
 7. 'char' as numeric type
+8. resolution of float types
+9. why unsigned types may cause issues
 */

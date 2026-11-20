@@ -94,5 +94,6 @@ int main()
 - difference between "\n" and std::endl
 - scoped enum vaviables
 - cmath
-
+- the return statement
+- return EXIT_SUCCESS
 */
